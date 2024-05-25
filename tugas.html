@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator</title>
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+  }
+
+  .calculator {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+  }
+
+  .display {
+    width: 270px;
+    height: 30px;
+    padding: 20px 15px;
+    background-color: #222;
+    color: #fff;
+    font-size: 2em;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: scroll;
+    white-space: nowrap;
+    /* Prevent line breaks */
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .btn {
+        background: hsla(0, 0%, 0%, 90%);
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+  }
+
+
+  .tol {
+    background: hsla(0, 0%, 0%, 70%);
+  }
+  
+
+  .equal {}
+  
+    .btn:hover {
+    background-color: #2C2C2C;
+  }
+  
+</style>
+
+<body>
+  <div class="calculator">
+    <div class="display" id="display"></div>
+    <div class="buttons">
+      <button class="btn tol" onclick="appendOperator('/')">÷</button>
+      <button class="btn" onclick="appendNumber('1')">1</button>
+      <button class="btn" onclick="appendNumber('2')">2</button>
+      <button class="btn" onclick="appendNumber('3')">3</button>
+      <button class="btn tol" onclick="appendOperator('*')">×</button>
+      <button class="btn" onclick="appendNumber('4')">4</button>
+      <button class="btn" onclick="appendNumber('5')">5</button>
+      <button class="btn" onclick="appendNumber('6')">6</button>
+      <button class="btn tol" onclick="appendOperator('+')">+</button>
+      <button class="btn" onclick="appendNumber('7')">7</button>
+      <button class="btn" onclick="appendNumber('8')">8</button>
+      <button class="btn" onclick="appendNumber('9')">9</button>
+      <button class="btn tol" onclick="appendOperator('-')">-</button>
+      
+      
+      <!--- benerin kode nya, TUGAS --->
+&lt;&#98;&#117;&#116;&#116;&#111;&#110;&#32;&#99;&#108;&#97;&#115;&#115;&equals;&quot;&#98;&#116;&#110;&#32;&#101;&#113;&#117;&#97;&#108;&#32;&#116;&#111;&#108;&quot;&#32;&#111;&#110;&#99;&#108;&#105;&#99;&#107;&equals;&quot;&#99;&#97;&#108;&#99;&#117;&#108;&#97;&#116;&#101;&lpar;&rpar;&quot;&gt;&equals;&lt;&sol;&#98;&#117;&#116;&#116;&#111;&#110;&gt;
+      <button class="btn" onclick="appendNumber('0')">0</button>
+      <button class="btn tol" onclick="clearDisplay()">C</button>
+
+    </div>
+  </div>
+  <script type="text/javascript">
+    let display = document.getElementById('display');
+    let isResultDisplayed = false;
+
+    function clearDisplay() {
+      display.textContent = '';
+      isResultDisplayed = false;
+    }
+
+    function appendNumber(number) {
+      if (isResultDisplayed) {
+        display.textContent = '';
+        isResultDisplayed = false;
+      }
+      display.textContent += number;
+    }
+
+    function appendOperator(operator) {
+      if (isResultDisplayed) {
+        display.textContent = '';
+        isResultDisplayed = false;
+      }
+      display.textContent += ` ${operator} `;
+    }
+
+    function calculate() {
+      try {
+        let result = eval(display.textContent);
+        display.textContent = "";
+        isResultDisplayed = true;
+      } catch (e) {
+        display.textContent = 'eror';
+      }
+    }
+
+  </script>
+  
+  
+
+</body>
+
+</html>
